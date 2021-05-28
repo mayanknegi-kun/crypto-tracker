@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import './App.css'
 import Coin from './Coin'
+import "./Coin.css"
 
 // https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false
 
@@ -14,6 +15,7 @@ function App(){
         axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false')
         .then(res=>{
             setCoins(res.data)
+            console.log(res.data)
         }).catch(error =>console.log("error"))
     },[]);
 
@@ -37,8 +39,10 @@ function App(){
                 name={coin.name} 
                 image={coin.image}
                 symbol={coin.symbol}
-                volume={coin.market_cap}
+                volume={coin.total_volume}
                 price={coin.current_price}
+                priceChange={coin.price_change_percentage_24h}
+                marketcap = {coin.market_cap}
                 />
             })}
         </div>
