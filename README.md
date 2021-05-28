@@ -1,7 +1,7 @@
-#Cryptocurrency Detail Tracker
+# Cryptocurrency Detail Tracker
 
 
-##Setup
+## Setup
 To run this project,install the dependencies using npm:
 
 ```
